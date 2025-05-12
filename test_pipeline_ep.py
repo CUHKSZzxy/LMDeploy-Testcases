@@ -46,3 +46,5 @@ if __name__ == '__main__':
         main(rank)
     finally:
         dist.destroy_process_group()
+
+# torchrun --nproc-per-node=2 test_pipeline_ep.py
