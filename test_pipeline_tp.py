@@ -22,5 +22,5 @@ pipe = pipeline(
 
 # inference
 prompt = 'Who are you?'
-response = pipe([prompt])  # Batch input
+response = pipe([prompt], gen_config=gen_config)  # Batch input
 print(response)
