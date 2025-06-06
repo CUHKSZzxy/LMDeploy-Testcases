@@ -16,8 +16,6 @@ lmdeploy serve api_server \
 
 
 
-
-
 curl http://172.16.4.52:8000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
