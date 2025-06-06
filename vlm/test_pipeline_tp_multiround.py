@@ -11,7 +11,7 @@ backend_config = PytorchEngineConfig(
 )
 
 # init pipeline
-model_path = "models--Qwen--Qwen2.5-VL-7B-Instruct"
+model_path = "Qwen/Qwen2.5-VL-72B-Instruct"
 pipe = pipeline(
     model_path,
     backend_config=backend_config,
