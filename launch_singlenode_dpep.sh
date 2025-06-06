@@ -13,3 +13,14 @@ lmdeploy serve api_server \
     --proxy-url http://172.16.4.52:8000 \
     --nnodes 1 \
     --node-rank 0 --log-level INFO 2>&1 | tee benchmark/api_serve_node0.log
+
+
+
+
+
+curl http://172.16.4.52:8000/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "Qwen/Qwen3-235B-A22B-FP8",
+    "messages": [{"role": "user", "content": "Hello! How are you?"}]
+  }'
