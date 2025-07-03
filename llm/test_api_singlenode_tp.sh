@@ -3,4 +3,4 @@ CUDA_VISIBLE_DEVICES=0,1 lmdeploy serve api_server \
         --tp 2 \
         --server-port 23333 \
         --backend pytorch \
-        --log-level INFO 2>&1 | tee 0_serve.log
+        --log-level INFO

@@ -1,8 +1,10 @@
-lmdeploy serve proxy --server-port 8000 --server-name 172.16.4.52
+# proxy
+lmdeploy serve proxy --server-port 8000 --routing-strategy 'min_expected_latency' --serving-strategy Hybrid --log-level INFO
 
 
 
-LMDEPLOY_DP_MASTER_ADDR=172.16.4.52 \
+# node 0
+LMDEPLOY_DP_MASTER_ADDR=0.0.0.0 \
 LMDEPLOY_DP_MASTER_PORT=29555 \
 lmdeploy serve api_server \
     Qwen/Qwen3-235B-A22B-FP8 \
@@ -10,13 +12,15 @@ lmdeploy serve api_server \
     --tp 1 \
     --dp 8 \
     --ep 8 \
-    --proxy-url http://172.16.4.52:8000 \
+    --proxy-url http://0.0.0.0:8000 \
     --nnodes 1 \
-    --node-rank 0 --log-level INFO 2>&1 | tee benchmark/api_serve_node0.log
+    --node-rank 0 \
+    --log-level INFO
 
 
 
-curl http://172.16.4.52:8000/v1/chat/completions \
+# test
+curl http://0.0.0.0:8000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
     "model": "Qwen/Qwen3-235B-A22B-FP8",
