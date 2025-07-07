@@ -13,7 +13,7 @@ gen_config = GenerationConfig(
 )
 
 # init pipeline
-model_path = "models--Qwen--Qwen2.5-7B-Instruct"
+model_path = "Qwen/Qwen2.5-7B-Instruct"
 pipe = pipeline(
     model_path,
     backend_config=backend_config,

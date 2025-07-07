@@ -22,6 +22,6 @@ lmdeploy serve api_server \
 curl http://0.0.0.0:8000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "Qwen/Qwen3-235B-A22B-FP8",
+    "model": "Qwen/Qwen2.5-7B-Instruct",
     "messages": [{"role": "user", "content": "Hello! How are you?"}]
   }'

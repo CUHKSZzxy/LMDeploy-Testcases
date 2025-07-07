@@ -6,7 +6,7 @@ from lmdeploy.serve.openai.api_server import handle_torchrun
 import torch.distributed as dist
 
 def main(rank: int):
-    model_path ='path_to_model'
+    model_path ='Qwen/Qwen3-30B-A3B-FP8'
 
     log_level = 'WARNING'
     prompts = [
