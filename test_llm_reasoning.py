@@ -9,14 +9,14 @@ response = client.chat.completions.create(
         'user',
         'content': [{
             'type': 'text',
-            'text': 'Who are you?',
+            'text': '9.11 and 9.8, which is greater?',
         }],
     }],
     temperature=0.8,
     top_p=0.8,
     # extra_body for reasoning
     extra_body={
-        "chat_template_kwargs": {"enable_thinking": False}
+        "chat_template_kwargs": {"enable_thinking": True}
     }
 )
 print(response)
